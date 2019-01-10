@@ -46,9 +46,11 @@ async function getCharacterData(name) {
   const url = getCharactersUrl(name);
   const hero = await fecthEndPoint(url)
     .then(function({ data }) {
-      const { id, name, description } = data.results[0];
+      const { id, name, description, thumbnail } = data.results[0];
+      const { path, extension } = thumbnail;
+      let image = `${path}.${extension}`;
 
-      return new Character(id, name, description);
+      return new Character(id, name, description, image);
     })
     .catch(exception => console.log(`❗️ERROR: ${exception}`));
 

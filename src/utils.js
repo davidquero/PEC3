@@ -11,4 +11,9 @@ export const getComicsUrl = id =>
   `${BASE_URL}/comics?characters=${id}&apikey=${API_PUBLIC_KEY}`;
 
 export const createHero = character =>
-  new Hero(character.getId(), character.getName(), character.getDescription());
+  new Hero(
+    character.getId(),
+    character.getName(),
+    character.getDescription(),
+    character.getImage()
+  );
