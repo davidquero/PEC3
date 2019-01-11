@@ -28,16 +28,11 @@ export default class Character {
     img.src = this.image;
     img.title = this.name;
     img.alt = this.name;
-    img.setAttribute("onclick", 'buscar("' + img.title + '")');
-    /*img.addEventListener("click", () => {
-      getMarvelDataFor(img.title);
-    });*/
+    img.setAttribute("onclick", 'searchHero("' + img.title + '")');
+
     let li = document.createElement("li");
     li.appendChild(img);
     characters.appendChild(li);
-
-    console.log("david");
-    console.log(characters);
 
     console.log(
       `%c${this.name} %c(id: ${this.id}) %c(image: ${this.image})`,

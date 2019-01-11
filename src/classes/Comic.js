@@ -52,6 +52,5 @@ export default class Comic {
     comics.appendChild(comic);
 
     console.log("\n");
-    console.log(comics);
   }
 }

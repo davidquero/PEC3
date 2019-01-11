@@ -20,6 +20,17 @@ export default class Hero extends Character {
   }
 
   showData() {
+    console.log("\n");
+    console.log(
+      `%c${this.name} %c(id: ${this.id})`,
+      "color: red",
+      "color: gray"
+    );
+    console.log(`%c${this.description}`, "color: gray; ");
+    console.log("\n");
+    console.log("%cComics with other Marvel characters", "color: gray");
+    console.log("-------------------------------------");
+
     // Update the image
     let image = document.querySelector("img");
     image.src = this.image;
