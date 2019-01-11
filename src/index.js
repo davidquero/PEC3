@@ -6,6 +6,7 @@ form.addEventListener("submit", event => {
 
   if (hero != null && hero !== "") {
     getMarvelDataFor(hero);
+    form.elements.search.value = "";
   }
 
   event.preventDefault();
