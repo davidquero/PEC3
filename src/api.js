@@ -5,7 +5,8 @@ import {
   fecthEndPoint,
   getCharactersUrl,
   getComicsUrl,
-  createHero
+  createHero,
+  createMessage
 } from "./utils";
 
 async function getComics(heroData) {
@@ -37,7 +38,7 @@ async function getComics(heroData) {
         }
       }
     })
-    .catch(exception => console.log(`❗️ERROR: ${exception}`));
+    .catch(exception => createMessage(exception));
 
   return hero;
 }
@@ -52,7 +53,7 @@ async function getCharacterData(name) {
 
       return new Character(id, name, description, image);
     })
-    .catch(exception => console.log(`❗️ERROR: ${exception}`));
+    .catch(exception => createMessage(exception));
 
   return hero;
 }
@@ -67,7 +68,7 @@ export async function getMarvelDataFor(heroName) {
 
   const hero = await getCharacterData(heroName)
     .then(hero => getComics(hero))
-    .catch(exception => console.log(`❗️ERROR: ${exception}`));
+    .catch(exception => createMessage(exception));
   hero.showData();
 
   console.log(

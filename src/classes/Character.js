@@ -25,17 +25,17 @@ export default class Character {
   showData(characters) {
     let img = document.createElement("img");
     img.className = "portrait";
-    img.src = this.image;
-    img.title = this.name;
-    img.alt = this.name;
-    img.setAttribute("onclick", 'searchHero("' + img.title + '")');
+    img.src = this.getImage();
+    img.title = this.getName();
+    img.alt = this.getName();
+    img.setAttribute("onclick", 'searchHero("' + this.getName() + '")');
 
     let li = document.createElement("li");
     li.appendChild(img);
     characters.appendChild(li);
 
     console.log(
-      `%c${this.name} %c(id: ${this.id}) %c(image: ${this.image})`,
+      `%c${this.getName()} %c(id: ${this.getId()}) %c(image: ${this.getImage()})`,
       "color: lightsalmon",
       "color: gray",
       "color: lightsalmon"

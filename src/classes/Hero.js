@@ -22,25 +22,25 @@ export default class Hero extends Character {
   showData() {
     console.log("\n");
     console.log(
-      `%c${this.name} %c(id: ${this.id})`,
+      `%c${this.getName()} %c(id: ${this.getId()})`,
       "color: red",
       "color: gray"
     );
-    console.log(`%c${this.description}`, "color: gray; ");
+    console.log(`%c${this.getDescription()}`, "color: gray; ");
     console.log("\n");
     console.log("%cComics with other Marvel characters", "color: gray");
     console.log("-------------------------------------");
 
     // Update the image
     let image = document.querySelector("img");
-    image.src = this.image;
-    image.alt = this.name;
-    image.title = this.name;
+    image.src = this.getImage();
+    image.alt = this.getName();
+    image.title = this.getName();
 
     // Update the hero name and description
     let heroDescription = document.getElementById("heroDescription");
-    heroDescription.querySelector("h1").innerHTML = this.name;
-    heroDescription.querySelector("p").innerHTML = this.description;
+    heroDescription.querySelector("h1").innerHTML = this.getName();
+    heroDescription.querySelector("p").innerHTML = this.getDescription();
 
     let comics = document.getElementById("comicList");
     // Empty de comics list

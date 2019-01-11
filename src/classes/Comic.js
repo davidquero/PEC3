@@ -14,18 +14,22 @@ export default class Comic {
     return this.title;
   }
 
+  getDescription() {
+    return this.description;
+  }
+
   addCharacter(characterName) {
     this.characterNames.push(characterName);
   }
 
   showData(characters, comics) {
-    console.log(`%c[Comic]: ${this.title}`, "color: indianred");
+    console.log(`%c[Comic]: ${this.getTitle()}`, "color: indianred");
 
     let comic = document.createElement("li");
     comic.className = "comicListItem";
 
     let title = document.createElement("h2");
-    title.innerHTML = this.title;
+    title.innerHTML = this.getTitle();
     comic.appendChild(title);
 
     let charactersHeading = document.createElement("h3");
@@ -35,7 +39,9 @@ export default class Comic {
     let charactersList = document.createElement("ul");
     charactersList.className = "companions";
     this.characterNames.forEach(name => {
-      const character = characters.find(character => character.name === name);
+      const character = characters.find(
+        character => character.getName() === name
+      );
       character.showData(charactersList);
     });
     comic.appendChild(charactersList);
@@ -46,7 +52,7 @@ export default class Comic {
 
     let description = document.createElement("p");
     description.className = "description";
-    description.innerText = this.description;
+    description.innerText = this.getDescription();
     comic.appendChild(description);
 
     comics.appendChild(comic);

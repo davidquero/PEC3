@@ -17,3 +17,8 @@ export const createHero = character =>
     character.getDescription(),
     character.getImage()
   );
+
+export const createMessage = exception => {
+  console.log(`❗️ERROR: ${exception}`);
+  alert(`❗️ERROR: ${exception}`);
+};
