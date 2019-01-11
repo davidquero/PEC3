@@ -11,3 +11,7 @@ form.addEventListener("submit", event => {
 
   event.preventDefault();
 });
+
+window.buscar = function buscar(hero) {
+  getMarvelDataFor(hero);
+};
