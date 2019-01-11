@@ -17,11 +17,11 @@ async function getComics(heroData) {
       const { results } = data;
 
       for (const result of results) {
-        const { id, title, characters } = result;
+        const { id, title, description, characters } = result;
         const { available, items } = characters;
 
         if (available > MIN_HEROES) {
-          var comic = new Comic(id, title);
+          var comic = new Comic(id, title, description);
 
           for (const item of items) {
             const { name } = item;

@@ -31,7 +31,13 @@ export default class Hero extends Character {
     heroDescription.querySelector("h1").innerHTML = this.name;
     heroDescription.querySelector("p").innerHTML = this.description;
 
+    let comics = document.getElementById("comicList");
+    // Empty de comics list
+    while (comics.firstChild) {
+      comics.removeChild(comics.firstChild);
+    }
+
     // Update the companions list
-    this.comics.forEach(comic => comic.showData(this.companions));
+    this.comics.forEach(comic => comic.showData(this.companions, comics));
   }
 }

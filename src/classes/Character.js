@@ -22,7 +22,16 @@ export default class Character {
     return this.image;
   }
 
-  showData() {
+  showData(characters) {
+    let img = document.createElement("img");
+    img.className = "portrait";
+    img.src = this.image;
+    img.title = this.name;
+    img.alt = this.name;
+    let li = document.createElement("li");
+    li.appendChild(img);
+    characters.appendChild(li);
+
     console.log(
       `%c${this.name} %c(id: ${this.id}) %c(image: ${this.image})`,
       "color: lightsalmon",
