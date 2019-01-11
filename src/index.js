@@ -1,5 +1,7 @@
 import { getMarvelDataFor } from "./api";
 
+document.getElementById("loading").style.display = "none";
+
 let form = document.querySelector("form");
 form.addEventListener("submit", event => {
   let hero = form.elements.search.value;

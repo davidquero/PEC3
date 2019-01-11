@@ -6,7 +6,7 @@ import {
   getCharactersUrl,
   getComicsUrl,
   createHero,
-  createMessage
+  showMessage
 } from "./utils";
 
 async function getComics(heroData) {
@@ -38,7 +38,7 @@ async function getComics(heroData) {
         }
       }
     })
-    .catch(exception => createMessage(exception));
+    .catch(exception => showMessage(exception));
 
   return hero;
 }
@@ -53,12 +53,13 @@ async function getCharacterData(name) {
 
       return new Character(id, name, description, image);
     })
-    .catch(exception => createMessage(exception));
+    .catch(exception => showMessage(exception));
 
   return hero;
 }
 
 export async function getMarvelDataFor(heroName) {
+  document.getElementById("loading").style.display = "block";
   console.log(
     `🕝 %cLoading data for "%c${heroName}%c". Please stand by...`,
     "color:gray",
@@ -68,8 +69,10 @@ export async function getMarvelDataFor(heroName) {
 
   const hero = await getCharacterData(heroName)
     .then(hero => getComics(hero))
-    .catch(exception => createMessage(exception));
+    .catch(exception => showMessage(exception));
   hero.showData();
+
+  document.getElementById("loading").style.display = "none";
 
   console.log(
     `✅ %cData for "%c${heroName}%c" loaded succesfully`,

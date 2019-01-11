@@ -18,7 +18,8 @@ export const createHero = character =>
     character.getImage()
   );
 
-export const createMessage = exception => {
+export const showMessage = exception => {
+  document.getElementById("loading").style.display = "none";
   console.log(`❗️ERROR: ${exception}`);
   alert(`❗️ERROR: ${exception}`);
 };
