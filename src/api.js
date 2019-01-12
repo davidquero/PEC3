@@ -49,6 +49,8 @@ async function getCharacterData(name) {
   const hero = await fecthEndPoint(url)
     .then(function({ data }) {
       const { id, name, description, thumbnail } = data.results[0];
+      // Se obtienen los campos path y extension de thumbnail y se
+      // concatenan en la variable image que se envía al constructor
       const { path, extension } = thumbnail;
       let image = `${path}.${extension}`;
 
