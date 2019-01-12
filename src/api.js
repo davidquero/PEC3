@@ -7,7 +7,7 @@ import {
   getComicsUrl,
   createHero,
   showMessage,
-  showLoading
+  showSearching
 } from "./utils";
 
 async function getComics(heroData) {
@@ -60,8 +60,8 @@ async function getCharacterData(name) {
 }
 
 export async function getMarvelDataFor(heroName) {
-  //document.getElementById("loading").style.display = "block";
-  showLoading(true);
+  // Se muestra el velo con la imagen de espera mientras se realiza la consulta
+  showSearching(true);
   console.log(
     `🕝 %cLoading data for "%c${heroName}%c". Please stand by...`,
     "color:gray",
@@ -74,8 +74,8 @@ export async function getMarvelDataFor(heroName) {
     .catch(exception => showMessage(exception));
   hero.showData();
 
-  //document.getElementById("loading").style.display = "none";
-  showLoading(false);
+  // Se oculta el velo con la imagen de espera mientras se realiza la consulta
+  showSearching(false);
 
   console.log(
     `✅ %cData for "%c${heroName}%c" loaded succesfully`,
