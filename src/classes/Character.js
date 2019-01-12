@@ -15,7 +15,9 @@ export default class Character {
   }
 
   getDescription() {
-    return this.description;
+    return this.description != null && this.description !== ""
+      ? this.description
+      : "No description";
   }
 
   getImage() {

@@ -85,6 +85,7 @@ h1 #title {
 
 #comics .portrait:hover {
   cursor: pointer;
+  filter: brightness(50%);
 }
 
 .comicList {
@@ -148,7 +149,7 @@ footer a {
 
 #loading {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 100;

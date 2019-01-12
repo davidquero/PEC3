@@ -19,7 +19,15 @@ export const createHero = character =>
   );
 
 export const showMessage = exception => {
-  document.getElementById("loading").style.display = "none";
+  //document.getElementById("loading").style.display = "none";
+  showLoading(false);
   console.log(`❗️ERROR: ${exception}`);
   alert(`❗️ERROR: ${exception}`);
+};
+
+export const showLoading = visible => {
+  document.getElementsByTagName("body")[0].style.overflow = visible
+    ? "hidden"
+    : "scroll";
+  document.getElementById("loading").style.display = visible ? "block" : "none";
 };
